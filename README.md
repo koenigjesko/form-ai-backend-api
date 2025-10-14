@@ -1,7 +1,6 @@
-# sgb (3D Souvenirs Generator backend server implementaton.)
-Currently, it is possible to interact with a GET request to the root path and a POST request to the `/upload` path.
+# **form-ai-backend-api** - the server part of the FormAI project.
 
-# Implemented API functionality
+## Implemented API functionality
 Currently, saving of images transmitted with a POST-request to a `./public/images/` for storing public images has been implemented. POST-requests accepts only `.jpg`, `.jpeg`, or `.png` extension.
 
 |  Path   | Method | Any type of request data | Returns
@@ -12,14 +11,13 @@ Currently, saving of images transmitted with a POST-request to a `./public/image
 
 In all cases, the response to the request will be a `JSON` dictionary that will **ALWAYS, WITHOUT EXCEPTION**, contain a `"message"` key (`{ "message": "..." }`) describing the request result. Even if something goes wrong and an unexpected exception occurs, the sender will be able to view the server message.
 
-# Build and running
+## Build and running
 First of all make sure you have the [latest version of Node.js](https://nodejs.org/en) installed on your PC. If everything is like this, use the command in the root of project to install all dependencies:
 ```bat
 npm i 
 ```
 
 ### The way to run directly is with TypeScript and `ts-node`:
-Run server using `start` command:
 ```bat 
 npm start
 ```
@@ -33,5 +31,6 @@ npm run js
 ```bash
 npx tsc
 ```
+Output files will be located in `./dist` files.
 
 ###### Detailed documentation and code comments will be compiled later.
