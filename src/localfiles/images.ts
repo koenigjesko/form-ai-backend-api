@@ -4,10 +4,10 @@ import type { Request } from 'express';
 
 export function getImageStorage(): StorageEngine {
   return diskStorage({
-    destination: (_request, _file, callback) => {
+    destination: (_request, _file, callback) => { // FIXME: ADD TYPES DEFINITION!
       callback(null, 'public/images/');
     },
-    filename: (_request: Request, file, callback) => {
+    filename: (_request: Request, file, callback) => { // FIXME: ADD TYPES DEFINITION!
       // Later, the username needs to be embedded in the file 
       // name to easily associate the file with the user.
       callback(

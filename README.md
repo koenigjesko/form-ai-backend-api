@@ -31,6 +31,6 @@ npm run js
 ```bash
 npx tsc
 ```
-Output files will be located in `./dist` files.
+Output files will be located in `./dist` folder.
 
 ###### Detailed documentation and code comments will be compiled later.
