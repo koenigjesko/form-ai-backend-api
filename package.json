@@ -1,0 +1,36 @@
+{
+  "name": "form-ai-backend-api",
+  "version": "0.1.0",
+  "description": "The server part of the FormAI project.",
+  "keywords": [
+    "form-ai-backend-api",
+    "form-ai",
+    "typescript",
+    "ts"
+  ],
+  "homepage": "https://github.com/koenigjesko/form-ai-backend-api#readme",
+  "bugs": {
+    "url": "https://github.com/koenigjesko/form-ai-backend-api/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koenigjesko/form-ai-backend-api.git"
+  },
+  "license": "Apache-2.0",
+  "author": "KoenigJesko",
+  "type": "module",
+  "main": "src/main.ts",
+  "scripts": {
+    "start": "npx ts-node src/main.ts",
+    "js": "npx tsc && node dist/main.js"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.3",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^24.7.2",
+    "express": "^5.1.0",
+    "multer": "^2.0.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
