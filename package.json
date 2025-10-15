@@ -22,14 +22,18 @@
   "main": "src/main.ts",
   "scripts": {
     "start": "npx ts-node src/main.ts",
-    "js": "npx tsc && node dist/main.js"
+    "js": "npx tsc && node dist/main.js",
+    "test": "npx ts-node tests/testhub.ts"
   },
   "dependencies": {
     "@types/express": "^5.0.3",
     "@types/multer": "^2.0.0",
     "@types/node": "^24.7.2",
+    "@types/sqlite3": "^3.1.11",
     "express": "^5.1.0",
     "multer": "^2.0.2",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   }
