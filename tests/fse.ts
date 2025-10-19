@@ -1,4 +1,4 @@
-import { checkFileExtension } from "../src/types.ts";
+import { checkFileExtension } from "../src/types/types.ts";
 import { trace } from "./testhub.ts";
 
 const filenames = ["photo.jpg", "photo.jpeg", "photo.png", "photo", ""];

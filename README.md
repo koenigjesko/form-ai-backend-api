@@ -1,7 +1,7 @@
 # **form-ai-backend-api** - the server part of the FormAI project.
 
 ## Implemented API functionality
-Currently, saving of images transmitted with a POST-request to a `./public/images/` for storing public images has been implemented. POST-requests accepts only `.jpg`, `.jpeg`, or `.png` extension.
+Currently, saving of images transmitted with a POST-request to a `./public/images/` for storing public images and deploying a sqlite database has been implemented. POST-requests accepts only `.jpg`, `.jpeg`, or `.png` extension.
 
 |  Path   | Method | Any type of request data | Returns
 |:-------:|:------:|:----------------------------------------------------------------------------:|:----:|

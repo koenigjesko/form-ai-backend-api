@@ -1,10 +1,16 @@
-// This isn't working and can be removed.
+/**
+ * @deprecated
+ * 
+ * When `include`ing this module in a tsconfig this 
+ * interop compiltarion and needs to be solved.
+ */
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
       HOSTNAME: string;
       PORT: number;
-      DATABASE_PATH: string;
+      DATABASE_FILE: string;
+      DATABASE_SCHEMA: string;
     }
   }
 }

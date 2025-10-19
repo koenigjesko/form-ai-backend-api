@@ -1,4 +1,4 @@
-import Database from 'better-sqlite3';
+import Database, { type Database as DatabaseType } from 'better-sqlite3';
 
 import { readFileSync } from 'fs';
 
@@ -12,12 +12,11 @@ interface User {
 interface GenerationProcess {
   authorId: number;
   uploadedImage: Express.Multer.File;
-  // generatedImage: ???; // TODO: Specify types and other later.
+  generatedImage: null; // TODO: Specify types and other later.
 }
 
 export class GenerationsDatabase {
-  // @ts-ignore
-  private db: Database; 
+  private readonly db: DatabaseType; 
 
   public constructor() {
     // FIXME: `process.env.DATABASE_FILE` should be replaced with typesafe feature.
