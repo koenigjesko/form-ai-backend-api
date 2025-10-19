@@ -1,6 +1,6 @@
 # Files:
+/db/main.sqlite
 /package-lock.json
-/testdatabase.db
 
 # Folders:
 /dist

@@ -6,6 +6,7 @@
     "./build",
     "./tests"
   ],
+  "include": ["src/types/env.d.ts"],
   "compilerOptions": {
     // File Layout
     "rootDir": "./src",
@@ -14,7 +15,7 @@
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "module": "nodenext",
-    // "moduleResolution": "nodenext",
+    // "moduleResolution": "nodenext", // TODO: Check params.
     // "emitDeclarationOnly": false,
     // "noEmit": true,
     "target": "esnext",
@@ -49,5 +50,6 @@
     "rewriteRelativeImportExtensions": true,
     // "moduleDetection": "force",
     "skipLibCheck": true,
+    // "typeRoots": ["./src/types"] // TODO: Remove or enable.
   }
 }

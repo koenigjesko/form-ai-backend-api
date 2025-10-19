@@ -1,13 +1,13 @@
 import express from 'express';
 import multer from 'multer';
 
-import type { Multer, StorageEngine } from 'multer'; 
 import type { Express, Request, Response, } from 'express';
+import type { Multer, StorageEngine } from 'multer';
 
-import { handleMultipleImagesGeneration, handleSingleImageGeneration } from './api/v1/export.ts';
-import { handleMiddlewareErrors } from './errors.ts';
-import { getImageStorage } from './localfiles/images.ts';
-import { checkPort } from './types.ts';
+import { handleMultipleImagesGeneration, handleSingleImageGeneration } from '../api/v1/export.ts';
+import { getImageStorage } from '../models/images.ts';
+import { handleMiddlewareErrors } from '../types/errors.ts';
+import { checkPort } from '../types/types.ts';
 
 export class Application {
   private readonly port: number;
