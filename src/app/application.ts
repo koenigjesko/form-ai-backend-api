@@ -4,7 +4,8 @@ import multer from 'multer';
 import type { Express, Request, Response, } from 'express';
 import type { Multer, StorageEngine } from 'multer';
 
-import { handleMultipleImagesGeneration, handleSingleImageGeneration } from '../api/v1/export.ts';
+import { handleMultipleImagesGeneration } from '../api/v1/generate-multiple.ts';
+import { handleSingleImageGeneration } from '../api/v1/generate-single.ts';
 import { getImageStorage } from '../models/images.ts';
 import { handleMiddlewareErrors } from '../types/errors.ts';
 import { checkPort } from '../types/types.ts';

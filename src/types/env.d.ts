@@ -2,7 +2,7 @@
  * @deprecated
  * 
  * When `include`ing this module in a tsconfig this 
- * interop compiltarion and needs to be solved.
+ * interop compilation and needs to be solved.
  */
 declare global {
   namespace NodeJS {
