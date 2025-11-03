@@ -1,8 +1,8 @@
 # **form-ai-backend-api** - the server part of the FormAI project.
 
-### [RERADME in russian language](./README_RU.md)
+### [README in russian language](./README_RU.md)
 
-### [Changelog since last update](./CHANGELOG.md)
+### [CHANGELOG since last update](./CHANGELOG.md)
 
 ### [Checklist of set and completed project tasks.](./TODO.md)
 

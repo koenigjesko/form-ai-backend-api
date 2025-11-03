@@ -1,5 +1,7 @@
 # Changelog
 
+### [CHANGELOG in russian language](./CHANGELOG_RU.md)
+
 ### **`v.0.1.1-alpha` from 03.11.2025**
 ### Added
 - When making a POST request to the `/api/v1/generate-from-multiple` and `/api/v1/generate-from-single` routes, the `user_id` parameter — a unique user ID — must now be specified in the request parameters.
