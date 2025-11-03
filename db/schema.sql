@@ -1,12 +1,14 @@
 CREATE TABLE IF NOT EXISTS users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
-    surname TEXT,
-    profile_picture BLOB
+    surname TEXT NOT NULL,
+    email TEXT NOT NULL,
+    profile_image_path BLOB
 );
 
 CREATE TABLE IF NOT EXISTS generations (
-    user_id INTEGER PRIMARY KEY,
-    uploaded_picture BLOB,
-    generated_picture BLOB
+    operation_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    uploaded_image_path TEXT NOT NULL,
+    generated_image_path BLOB
 );

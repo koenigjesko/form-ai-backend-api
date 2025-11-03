@@ -3,6 +3,7 @@
 #### Done:
 - [x] Make uploading file limit.
 - [x] Conduct full unit testing (optional) (The decision was made to abandon it, taking into account the sustainability of the project's tools.).
+- [x] It is necessary to consider the possibility of creating a **database connection pool** for multi-threaded work with the database. (During the analysis of possible options, it was decided to abandon this idea in favor of procedural connections.)
 
 #### Tasks in progress
 - [ ] May be `nodemon` js-package will be installed for faster debug.

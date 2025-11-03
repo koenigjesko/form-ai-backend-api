@@ -1,5 +1,9 @@
 # **form-ai-backend-api** - the server part of the FormAI project.
 
+### [RERADME in russian language](./README_RU.md)
+
+### [Changelog since last update](./CHANGELOG.md)
+
 ### [Checklist of set and completed project tasks.](./TODO.md)
 
 ## Implemented API functionality
@@ -8,8 +12,8 @@ Currently, saving of images transmitted with a POST-request to a `./public/image
 |  Path   | Method | Any type of request data | Returns
 |:-------:|:------:|:----------------------------------------------------------------------------:|:----:|
 | `/` | **GET** | None. | `200 OK` code + `json`-dictionary about using the **POST** method in the correct way. |
-| `/api/v1/generate-single` | **POST** | In the `body` block, the `image` key's value **must be a file**.| `200 OK` code if image provided and everything is ok. / `500 Bad Request` if something went wrong. |
-| `/api/v1/generate-multiple` | **POST** | In the `body` block, the `images` key must be an array containing **1-5 files**.  | `200 OK` code image provided and everything is ok. / `500 Bad Request` if something went wrong. | 
+| `/api/v1/generate-from-single` | **POST** | In the `params block`, the `user_id` key **must be a numeric value** - the unique user ID. In the `body` block, the `image` key's value **must be a file**.| `200 OK` code if image provided and everything is ok. / `500 Bad Request` if something went wrong. |
+| `/api/v1/generate-from-multiple` | **POST** | In the `params block`, the `user_id` key **must be a numeric value** - the unique user ID. In the `body` block, the `images` key must be an array containing **1-5 files**.  | `200 OK` code image provided and everything is ok. / `500 Bad Request` if something went wrong. | 
 
 In all cases, the response to the request will be a `JSON` dictionary that will **ALWAYS, WITHOUT EXCEPTION**, contain a `"message"` key (`{ "message": "..." }`) describing the request result. Even if something goes wrong and an unexpected exception occurs, the sender will be able to view the server message.
 

@@ -1,11 +1,13 @@
 # Files:
-/.env
-/db/main.sqlite
+# /.env
+/db/main.sqlite*
 /package-lock.json
 
 # Folders:
 /dist
 /node_modules
 
-/public/images/*
-!/public/images/.gitkeep
+/public/generated_images/*
+!/public/generated_images/.gitkeep
+/public/uploaded_images/*
+!/public/uploaded_images/.gitkeep

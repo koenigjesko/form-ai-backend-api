@@ -1,3 +1,4 @@
+import * as databaseFiller from './database-filler.ts';
 import * as fse from './fse.ts';
 
 export function trace(filename: string, line: number, ...params: any[]): void {
@@ -8,7 +9,7 @@ interface TestModule {
   runTest(): void;
 }
 
-const testModules: TestModule[] = [fse];
+const testModules: TestModule[] = [databaseFiller, fse];
 
 function runAllTests(): void {
   for (const module of testModules) {
