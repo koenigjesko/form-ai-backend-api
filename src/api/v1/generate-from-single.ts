@@ -1,15 +1,12 @@
 import type { Request, Response } from 'express';
 
-import { CrossDatabase } from '../../models/database.ts';
-import { Code, maxUploadingFileSize } from '../../types/types.ts';
-
-import { join } from 'path';
-import { cwd } from 'process';
+import { ApiDatabase } from '../../models/database.ts';
+import { Code, joinWithCwd, maxUploadingFileSize } from '../../types/types.ts';
 
 export function generateFromSingleImage(
   request: Request, 
   response: Response, 
-  db: CrossDatabase
+  db: ApiDatabase
 ): any {
   response.status(Code.BadRequest);
 
@@ -17,7 +14,7 @@ export function generateFromSingleImage(
 
   // FIXME: REMOVE INTO IMAGES STORAGE GENERATOR.
   if (!userIdParam) {
-    return response.json({ 
+    return response.json({
       message: 'To generate an image, you must pass a unique user ID as the user-id request parameter.'
     });
   }
@@ -32,11 +29,15 @@ export function generateFromSingleImage(
     // Generation here.
 
     const userId = Number.parseInt(userIdParam);
-    db.insertGeneration({ user_id: userId, uploaded_image_path: join(cwd(), request.file.path) })
+    
+    db.insertGeneration({ 
+      user_id: userId, 
+      uploaded_images_paths: [joinWithCwd(request.file.path)] 
+    });
 
     response.status(Code.OK)
       .json({ message: 'Image uploaded successfully.' });
   } catch {
-     return response.json({ message: 'user_id parameter must be a numeric value.' });
+    return response.json({ message: 'user_id parameter must be a numeric value.' });
   }
 }

@@ -7,7 +7,12 @@
 /dist
 /node_modules
 
+# Sets:
 /public/generated_images/*
-!/public/generated_images/.gitkeep
+/public/profile_images/*
 /public/uploaded_images/*
+
+# Exceptions:
+!/public/generated_images/.gitkeep
+!/public/profile_images/.gitkeep
 !/public/uploaded_images/.gitkeep

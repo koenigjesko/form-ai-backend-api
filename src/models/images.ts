@@ -10,24 +10,26 @@ import type { Request } from 'express';
 export function getImageStorage(): StorageEngine {
   return diskStorage({
     destination: (
-      _request: Request, 
+      request: Request, 
       _file: Express.Multer.File, 
       callback: (error: Error | null, destination: string) => void
     ) => {
+      // FIXME: Here must be done normal file naming.
+      if (request.path === '/api/v1/register-new-user') {
+        return callback(null, 'public/profile_images/');
+      }
+
       callback(null, 'public/uploaded_images/');
     },
-
     filename: (
-      request: Request, 
+      _request: Request, 
       file: Express.Multer.File, 
       callback: (error: Error | null, filename: string) => void
     ) => {
-      const userId = request.query['user_id']; // FIXME: Add error throwing and checks for id.
-      // Later, the username needs to be embedded in the file 
-      // name to easily associate the file with the user.
+      // FIXME: Here must be done normal file naming.
       callback(
         null, 
-        Date.now() + '-' + userId +  '-' + file.originalname 
+        Date.now() + '-' + file.originalname 
       );
     }
   });

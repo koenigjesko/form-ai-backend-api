@@ -1,15 +1,17 @@
 import type { Request, Response } from 'express';
 
-import { CrossDatabase } from '../../models/database.ts';
-import { Code, maxUploadingFileSize } from '../../types/types.ts';
+import { ApiDatabase } from '../../models/database.ts';
+import { Code, joinWithCwd, maxUploadingFileSize } from '../../types/types.ts';
 
 export function generateFromMultipleImage(
   request: Request, 
   response: Response,
-  _db: CrossDatabase
+  db: ApiDatabase
 ): any {
   const userIdParam = request.query['user_id'] as string;
-  const files = (request.files as Express.Multer.File[]);
+  const files = request.files as Express.Multer.File[];
+
+  response.status(Code.BadRequest);
   
   // FIXME: REMOVE INTO IMAGES STORAGE GENERATOR.
   if (!userIdParam) {
@@ -25,16 +27,20 @@ export function generateFromMultipleImage(
   for (const file of files) {
     if (file.size > maxUploadingFileSize) {
       return response.status(Code.BadRequest)
-        .json({ message: 'The size of the uploaded file must not exceed 50 megabytes.' });
+        .json({ message: 'The size of each uploaded file must not exceed 50 megabytes.' });
     }
   }
 
   try {
     // Generation here.
-
-    const _userId = Number.parseInt(userIdParam);
-    // db.insertGeneration({ user_id: userId, uploaded_image_path: join(cwd(), request.file.path) })
-    // Somehow files names must be added to array...
+    
+    const userId = Number.parseInt(userIdParam);
+    const filesPaths = files.map(file => joinWithCwd(file.path));
+    
+    db.insertGeneration({ 
+      user_id: userId, 
+      uploaded_images_paths: filesPaths
+    });
 
     response.status(Code.OK)
       .json({ message: 'Image uploaded successfully.' });

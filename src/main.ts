@@ -8,5 +8,5 @@ function main(): void {
   const server = new Application(); 
   server.startListening();
 }
-
+ 
 main();
