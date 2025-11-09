@@ -11,10 +11,10 @@ export const allowedFileExtensions = ['jpeg', 'jpg', 'png'];
 export const maxUploadingFileSize = 52_428_800;
 
 export const apiPaths = [
+  '/api/v1/authorize-user',
   '/api/v1/generate-from-single', 
   '/api/v1/generate-from-multiple',
-  '/api/v1/register-new-user',
-  '/api/v1/authorize-user'
+  '/api/v1/register-new-user'
 ];
 
 export const Code = {

@@ -8,17 +8,17 @@ type RowType = User | Generation;
 type Table = 'users' | 'generations';
 type Operator = 'AND' | 'OR';
 
-export interface User {
+export interface User extends Dictionary {
   user_id?: number;
-  readonly name: string;
-  readonly surname: string;
+  readonly name?: string;
+  readonly surname?: string;
   readonly email: string;
   readonly password: string;
   profile_image_path?: string;
 }
 
-interface Generation {
-  readonly operation_id: number;
+interface Generation extends Dictionary {
+  readonly operation_id?: number;
   readonly user_id: number;
   readonly uploaded_images_paths: string[];
   readonly generated_image_path?: never; // FIXME: REMOVE WITH ACTUAL TYPE LATER.
@@ -27,7 +27,7 @@ interface Generation {
 export class ApiDatabase {
   private readonly driver: DatabaseType;
 
-  private makeQueryEqualities(values: Dictionary): string[] {
+  private makeQueryEqualities(values: RowType): string[] {
     let equalities = [];
 
     for (const property of Object.getOwnPropertyNames(values)) {
@@ -47,7 +47,7 @@ export class ApiDatabase {
    * @returns -
    */
   private selectRow<T extends RowType>(
-    data: Omit<T, keyof T>, 
+    data: T, 
     table: Table, 
     operator: Operator
   ): T {
@@ -84,7 +84,7 @@ export class ApiDatabase {
   }
 
   private isRowExists<T extends RowType>(
-    row: Omit<T, keyof T>, 
+    row: T, 
     table: Table,
     operator: Operator
   ): boolean {
@@ -108,7 +108,7 @@ export class ApiDatabase {
     this.driver.exec(initdriverQuery);
   }
 
-  public selectUser(user: Omit<User, keyof User>, operator: Operator = 'AND'): User {
+  public selectUser(user: User, operator: Operator = 'AND'): User {
     return this.selectRow<User>(user, 'users', operator);
   }
 
@@ -126,7 +126,7 @@ export class ApiDatabase {
    * The `user` parameter type - `Omit<User, keyof User>` should be more specific...
    * @param user -
    */
-  public isUserExists(user: Omit<User, keyof User>, operator: Operator = 'AND'): boolean {
+  public isUserExists(user: User, operator: Operator = 'AND'): boolean {
     return this.isRowExists(user, 'users', operator);
   }
 }
