@@ -1,14 +1,14 @@
 import type { Request, Response } from 'express';
 
 import { ApiDatabase } from '../../models/database.ts';
-import { Code, getTypedParamsOf, joinWithCwd } from '../../types/types.ts';
+import { Code, getTypedParamsAs, joinWithCwd } from '../../types/types.ts';
 
 import type { User } from '../../models/database.ts';
 
 export function registerNewUser(request: Request, response: Response, db: ApiDatabase): any {
   response.status(Code.BadRequest);
 
-  let user = getTypedParamsOf<User>(
+  let user = getTypedParamsAs<User>(
     request.query,
     'name',
     'surname',

@@ -69,7 +69,7 @@ export function stringifyWithRules(value: any): string {
  * @param propertyNames -
  * @returns -
  */
-export function getTypedParamsOf<T extends Dictionary>(
+export function getTypedParamsAs<T extends Dictionary>(
   object: any, ...propertyNames: string[]
 ): T {
   let properties: Dictionary = {};

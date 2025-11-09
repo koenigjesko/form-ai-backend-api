@@ -1,13 +1,13 @@
 import type { Request, Response } from 'express';
 
 import { ApiDatabase } from '../../models/database.ts';
-import { Code, getTypedParamsOf } from '../../types/types.ts';
+import { Code, getTypedParamsAs } from '../../types/types.ts';
 
 import type { User } from '../../models/database.ts';
 
 export function authorizeUser(request: Request, response: Response, db: ApiDatabase): any {
   response.status(Code.BadRequest);
-  const userData = getTypedParamsOf<User>(request.query, 'email', 'password');
+  const userData = getTypedParamsAs<User>(request.query, 'email', 'password');
 
   if (db.isUserExists(userData, 'OR')) {
     const dbOption = db.selectUser(userData, 'OR');
